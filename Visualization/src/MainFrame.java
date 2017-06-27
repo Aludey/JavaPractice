@@ -4,11 +4,6 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 
 public class MainFrame extends JFrame {
-
-    /**
-     *
-     */
-
     private static final long serialVersionUID = -4700133615545878302L;
 
     private String title; //титульник окна
@@ -35,24 +30,24 @@ public class MainFrame extends JFrame {
         mainPanel.setPreferredSize(new Dimension(1000,700)); // ставит предпочитаемый размер основной панели
         mainPanel.setBorder(new EtchedBorder()); // делает обводку главной панели
         add(mainPanel); // добавляет панель на базовое окно
-        
-		UserPanel infoGathererPanel = new UserPanel();
+
+        UserPanel infoGathererPanel = new UserPanel();
         mainScreenPanel.setBackground(Color.BLACK); // делает панель вывода алгоритма черной
-        
+
         mainScreenPanel.add(gp,new GridBagConstraints(1, 0, 1, 1, 1, 1, // добавление графической панели на панель вывода
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(2,2,2,2), 0, 0));
-        
+
         mainPanel.add(mainScreenPanel, new GridBagConstraints(0, 0, 1, 1, 1, 1, //добавляет панель вывода, на главную панель в верхнюю часть
                 GridBagConstraints.NORTH, GridBagConstraints.BOTH,
                 new Insets(15,15,120,15), 0, 0));
-        	
+
         mainPanel.add(infoGathererPanel.getPanel(), new GridBagConstraints(0, 0, 1, 1, 1, 1, //добавляет панель кнопок на главную панель снизу
                 GridBagConstraints.SOUTH, GridBagConstraints.HORIZONTAL,
                 new Insets(0,15,15,15), 0, 0));
-        
+
         setVisible(true);
     }
 
-   
+
 }
