@@ -144,6 +144,7 @@ public class MainFrame extends JFrame {
             }
 
             GraphicsPanel gp2 = arrayList.get(--nextPrevIndex).paint();
+            gp2.paintComponent(getGraphics());
         }
     }
 
@@ -159,6 +160,7 @@ public class MainFrame extends JFrame {
             }
 
             GraphicsPanel gp2 = arrayList.get(++nextPrevIndex).paint();
+            gp2.paintComponent(getGraphics());
 
         }
     }
@@ -177,25 +179,23 @@ public class MainFrame extends JFrame {
 
 
 
-
             for (nextPrevIndex = 0; nextPrevIndex < arrayList.size(); nextPrevIndex++) {
-                GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
+                        GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
+                        gp2.paintComponent(getGraphics());
 
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                        
+                        try {
+                            Thread.sleep(300);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
-                nextPrevIndex--;
+                    nextPrevIndex--;
 
-                infoGathererPanel.loadButton.setEnabled(true); // возвращает все кнопки кроме некст тк последний шаг и дальше некуда                infoGathererPanel.prevButton.setEnabled(true);
-                infoGathererPanel.startButton.setEnabled(true);
-                
-                }
-            }
-
+                    infoGathererPanel.loadButton.setEnabled(true); // возвращает все кнопки кроме некст тк последний шаг и дальше некуда
+                    infoGathererPanel.prevButton.setEnabled(true);
+                    infoGathererPanel.startButton.setEnabled(true);
+            
 
         }
     }
@@ -210,6 +210,7 @@ public class MainFrame extends JFrame {
 
             nextPrevIndex = arrayList.size()-1;
             GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
+            gp2.paintComponent(getGraphics());
 
             infoGathererPanel.resultButton.setEnabled(false);
         }

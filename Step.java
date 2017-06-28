@@ -30,7 +30,8 @@ public class Step {
 
 
     public GraphicsPanel paint() {
-        //TODO
+        GraphicsPanel gp = new GraphicsPanel(elementsValues, pivotsIndex, changingElementsIndexes, quantity, maximum);
+        return gp;
     }
 
     public Step(int pivots, int[] changing, int[] mass) {
