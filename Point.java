@@ -9,9 +9,9 @@ public class Point extends Point2D { //точка и в Африке точка
 
     }
 
-    public Point(double x, double y){
-        this.x=x;
-        this.y=y;
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -26,8 +26,8 @@ public class Point extends Point2D { //точка и в Африке точка
 
     @Override
     public void setLocation(double x, double y) {
-        this.x=x;
-        this.y=y;
+        this.x = x;
+        this.y = y;
     }
 
 }
