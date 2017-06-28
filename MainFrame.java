@@ -179,7 +179,10 @@ public class MainFrame extends JFrame {
 
 
 
-            for (nextPrevIndex = 0; nextPrevIndex < arrayList.size(); nextPrevIndex++) {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (nextPrevIndex = 0; nextPrevIndex < arrayList.size(); nextPrevIndex++) {
                         GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
                         gp2.paintComponent(getGraphics());
 
@@ -195,10 +198,15 @@ public class MainFrame extends JFrame {
                     infoGathererPanel.loadButton.setEnabled(true); // возвращает все кнопки кроме некст тк последний шаг и дальше некуда
                     infoGathererPanel.prevButton.setEnabled(true);
                     infoGathererPanel.startButton.setEnabled(true);
-            
+                }
+            });
+            t.start();
+
+
 
         }
     }
+
 
     public class ResultButtonActionListener implements ActionListener{//класс-листенер для кнопки result
 
