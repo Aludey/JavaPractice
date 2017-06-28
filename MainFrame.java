@@ -66,7 +66,62 @@ public class MainFrame extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent event){
-        
+            int min = 0, max = 0, size = 0;
+
+            while (true) {
+                try {
+                    min = Integer.parseInt(infoGathererPanel.txtFieldMinSize.getText());
+                    max = Integer.parseInt(infoGathererPanel.txtFieldMaxSize.getText());
+                    size = Integer.parseInt(infoGathererPanel.txtFieldSize.getText());
+                    break;
+                } catch (NumberFormatException ex) {
+                    System.out.println("НЕВЕРНЫЙ ВВОД"); //TODO не работает обработка неверного ввода
+                    exit(1);
+                }
+            }
+
+            array = new Array(min,max,size);
+
+            arrayList = new ArrayList<Step>();
+
+            QuickSort QuickSort = new QuickSort();
+
+            QuickSort.goodQuickSort(array.getArray(), arrayList, 0, array.getArray().length-1);
+
+            GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
+            gp2.paintComponent(getGraphics());
+
+            //проверка правильности сортировки массива
+            System.out.println("Отсортированный массив");
+            for (int i = 0; i < array.getArray().length; i++) {
+                System.out.print(array.getArray()[i] + " ");
+            }
+            System.out.println();
+
+
+            //проверка правильности заполнения массива Step'ов
+            for (int i = 0; i < arrayList.size(); i++) {
+
+                System.out.println(i + "-я замена");
+                if (arrayList.get(i).getChangingElementsIndexes()[0]==-1) {
+                    System.out.println("Элементы больше не изменятся");
+                    System.out.print("Текущее состояние массива ");
+                    for (int j = 0; j < arrayList.get(i).getElementsValues().length; j++) {
+                        System.out.print(arrayList.get(i).getElementsValues()[j] + " ");
+                    }
+                    System.out.println();
+                    break;
+                }
+                System.out.println("Индексы меняемых чисел " + arrayList.get(i).getChangingElementsIndexes()[0] + " и "  + arrayList.get(i).getChangingElementsIndexes()[1]);
+                System.out.println("Индекс остовного элемента " + arrayList.get(i).getPivotsIndex());
+                System.out.print("Текущее состояние массива ");
+                for (int j = 0; j < arrayList.get(i).getElementsValues().length; j++) {
+                    System.out.print(arrayList.get(i).getElementsValues()[j] + " ");
+                }
+                System.out.println();
+            }
+
+
             infoGathererPanel.txtFieldMinSize.setText(""); // сбрасывает текст из текстфилдов
             infoGathererPanel.txtFieldMaxSize.setText("");
             infoGathererPanel.txtFieldSize.setText("");
@@ -87,6 +142,8 @@ public class MainFrame extends JFrame {
             if (nextPrevIndex==1){
                 infoGathererPanel.prevButton.setEnabled(false);
             }
+
+            GraphicsPanel gp2 = arrayList.get(--nextPrevIndex).paint();
         }
     }
 
@@ -100,6 +157,8 @@ public class MainFrame extends JFrame {
                 infoGathererPanel.nextButton.setEnabled(false);
                 infoGathererPanel.resultButton.setEnabled(false);
             }
+
+            GraphicsPanel gp2 = arrayList.get(++nextPrevIndex).paint();
 
         }
     }
@@ -130,12 +189,12 @@ public class MainFrame extends JFrame {
                         
 
                 nextPrevIndex--;
-            }
 
-            infoGathererPanel.loadButton.setEnabled(true); // возвращает все кнопки кроме некст тк последний шаг и дальше некуда                infoGathererPanel.prevButton.setEnabled(true);
-            infoGathererPanel.startButton.setEnabled(true);
-            
-            
+                infoGathererPanel.loadButton.setEnabled(true); // возвращает все кнопки кроме некст тк последний шаг и дальше некуда                infoGathererPanel.prevButton.setEnabled(true);
+                infoGathererPanel.startButton.setEnabled(true);
+                
+                }
+            }
 
 
         }
@@ -150,6 +209,7 @@ public class MainFrame extends JFrame {
 
 
             nextPrevIndex = arrayList.size()-1;
+            GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
 
             infoGathererPanel.resultButton.setEnabled(false);
         }
