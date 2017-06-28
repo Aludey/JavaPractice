@@ -62,4 +62,13 @@ public class QuickSort {
         }
     }
 
+
+    public void goodQuickSort(int[] arr, ArrayList<Step> list, int low, int high) {
+        quickSort(arr, list, low, high);
+        int[] changing = new int[2];
+        changing[0]=-1;
+        changing[1]=-1;
+        list.add(new Step(-1, changing, arr));
+    }
+
 }
