@@ -1,8 +1,8 @@
 import java.awt.Dimension;
 
 public class VisualMain {
-	public static void main(String[] args){
-		MainFrame mf = new MainFrame("Quick Sort Prototype by Aludey", new Dimension(1060,780)); // создает Базовое окно
-		mf.init(); //заполняет базовое окно согласно функции
-	}
+    public static void main(String[] args){
+        MainFrame mf = new MainFrame("Quick Sort Prototype by Aludey", new Dimension(1060,740)); // СЃРѕР·РґР°РµС‚ Р‘Р°Р·РѕРІРѕРµ РѕРєРЅРѕ
+        mf.init(); //Р·Р°РїРѕР»РЅСЏРµС‚ Р±Р°Р·РѕРІРѕРµ РѕРєРЅРѕ СЃРѕРіР»Р°СЃРЅРѕ С„СѓРЅРєС†РёРё
+    }
 }
