@@ -29,10 +29,10 @@ public class UserPanel extends JPanel{
 
     public UserPanel() {
 
-        lblMinSize.setFont(new Font("Arial",Font.BOLD,12)); // редактирует шрифты
-        lblMaxSize.setFont(new Font("Arial",Font.BOLD,12));
-        lblDefis.setFont(new Font("Arial",0,20));
-        lblSize.setFont(new Font("Arial",Font.BOLD,12));
+        lblMinSize.setFont(new Font("Arial", Font.BOLD, 12)); // редактирует шрифты
+        lblMaxSize.setFont(new Font("Arial", Font.BOLD, 12));
+        lblDefis.setFont(new Font("Arial", 0, 20));
+        lblSize.setFont(new Font("Arial", Font.BOLD, 12));
 
         txtFieldMinSize.setHorizontalAlignment(JTextField.CENTER);
         txtFieldMaxSize.setHorizontalAlignment(JTextField.CENTER);
@@ -48,7 +48,7 @@ public class UserPanel extends JPanel{
         Box infoGathererBox = Box.createHorizontalBox();
         Box labelBox = Box.createHorizontalBox();
         Box infoLabelBox = Box.createVerticalBox();
-        Box infoLabelLoadBox =Box.createHorizontalBox();
+        Box infoLabelLoadBox = Box.createHorizontalBox();
         Box userPanelBox = Box.createHorizontalBox();
 
         startResultBox.add(startButton);

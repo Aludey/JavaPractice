@@ -15,8 +15,8 @@ public class GraphicsPanel extends JPanel{
     private int pivots; // номер остова
     private int change1; // номер 1 меняемого
     private int change2; //номер 2го меняемого
-    private int quant=1; // размер массива
-    private int max=1; // размер максимального э-та
+    private int quant = 1; // размер массива
+    private int max = 1; // размер максимального э-та
     private int space = 3; // такие пробелы будут. (это const)
 
     public GraphicsPanel(){
@@ -30,7 +30,7 @@ public class GraphicsPanel extends JPanel{
     }
 
 
-    public GraphicsPanel(int[]sizes, int pivot, int [] changingElementsIndexes, int quantity, int maximum){
+    public GraphicsPanel(int[] sizes, int pivot, int[] changingElementsIndexes, int quantity, int maximum) {
         this.size = sizes; // размер элемента
         this.pivots = pivot; // номер остова
         this.change1 = changingElementsIndexes[0]; // номер 1 меняемого
@@ -47,8 +47,8 @@ public class GraphicsPanel extends JPanel{
         int weight; // инициализация для формулы
         int height; // инициализация для формулы
 
-        int lineX1 = change1*(((900-(quant-1)*space)/quant)+space)+80+((900-(quant-1)*space)/quant)/2; // формулы координат для соединяющей стрелки линии
-        int lineX2 = change2*(((900-(quant-1)*space)/quant)+space)+80+((900-(quant-1)*space)/quant)/2;
+        int lineX1 = change1 * (((900 - (quant - 1) * space) / quant) + space) + 80 + ((900 - (quant - 1) * space) / quant) / 2; // формулы координат для соединяющей стрелки линии
+        int lineX2 = change2 * (((900 - (quant - 1) * space) / quant) + space) + 80 + ((900 - (quant - 1) * space) / quant) / 2;
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.BLACK); // цвет рисовальщика
@@ -58,16 +58,16 @@ public class GraphicsPanel extends JPanel{
 
         for(int i = 0; i < quant; ++i) {
 
-            coordx = i*(((900-(quant-1)*space)/quant)+space)+80; // формула координаты х
-            weight = (900-(quant-1)*space)/quant; // формула ширины
-            height = size[i]*(400/max); // формула высоты
+            coordx = i * (((900 - (quant - 1) * space) / quant) + space) + 80; // формула координаты х
+            weight = (900 - (quant - 1) * space) / quant; // формула ширины
+            height = size[i] * (400 / max); // формула высоты
 
             g2.setColor(Color.WHITE); // цвет элементов
 
 
             if ((i == change1)||(i == change2)) {
                 g2.setColor(Color.CYAN);
-                arrow = new Arrow(coordx+weight/2, 145, coordx+weight/2, 70);
+                arrow = new Arrow(coordx+weight / 2, 145, coordx+weight / 2, 70);
                 g2.draw(arrow.axis);
                 g2.draw(arrow.leftWing);
                 g2.draw(arrow.rightWing);
@@ -81,7 +81,7 @@ public class GraphicsPanel extends JPanel{
         }
         g2.setColor(Color.CYAN);
         line = new Line(lineX1,70,lineX2,70); // соединяющая стрелки линия
-        if (change1!=-1) g2.draw(line);
+        if (change1 != -1) g2.draw(line);
     }
 
 }

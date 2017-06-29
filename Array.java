@@ -45,7 +45,7 @@ public class Array {
         int[] res = new int[size];
         System.out.println("Сгенерированный массив с границами " + leftBorder + " и " + rightBorder + " размера " + size);
         for (int i = 0; i < size; i++) {
-            res[i] = leftBorder + (int) (Math.random()*(rightBorder-leftBorder+1));
+            res[i] = leftBorder + (int) (Math.random() * (rightBorder - leftBorder + 1));
             System.out.print(res[i] + " ");
         }
         System.out.println();

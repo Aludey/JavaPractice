@@ -12,8 +12,8 @@ public class Arrow {
 
     public Arrow(double x1, double y1, double x2, double y2){
         axis = new Line(x1, y1, x2, y2);
-        leftWing = new Line(x1, y1, x1+(y1-y2)/6, y1-(y1-y2)/3);
-        rightWing = new Line(x1, y1, x1-(y1-y2)/6, y1-(y1-y2)/3);
+        leftWing = new Line(x1, y1, x1 + (y1 - y2) / 6, y1 - (y1 - y2) / 3);
+        rightWing = new Line(x1, y1, x1 - (y1 - y2) / 6, y1 - (y1 - y2) / 3);
     }
 
     public double getHeadX(){
@@ -34,7 +34,7 @@ public class Arrow {
 
     public void setArrow(double x1, double y1, double x2, double y2){
         axis.setLine(x1, y1, x2, y2);
-        leftWing.setLine(x1, y1, x1+(y1-y2)/6, y1-(y1-y2)/3);
-        rightWing.setLine(x1, y1, x1-(y1-y2)/6, y1-(y1-y2)/3);
+        leftWing.setLine(x1, y1, x1 + (y1 - y2) / 6, y1 - (y1 - y2) / 3);
+        rightWing.setLine(x1, y1, x1 - (y1 - y2) / 6, y1 - (y1 - y2) / 3);
     }
 }

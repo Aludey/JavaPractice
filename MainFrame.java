@@ -2,12 +2,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 
-import static java.lang.System.exit;
 
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = -4700133615545878302L;
@@ -73,7 +71,7 @@ public class MainFrame extends JFrame {
                 min = Integer.parseInt(infoGathererPanel.txtFieldMinSize.getText());
                 max = Integer.parseInt(infoGathererPanel.txtFieldMaxSize.getText());
                 size = Integer.parseInt(infoGathererPanel.txtFieldSize.getText());
-                if (min > max || min<1 || max>100 || size>100) {
+                if (min > max || min < 1 || max > 100 || size > 100) {
                     infoGathererPanel.txtFieldMinSize.setText("");
                     infoGathererPanel.txtFieldMaxSize.setText("");
                     infoGathererPanel.txtFieldSize.setText("");
@@ -91,13 +89,13 @@ public class MainFrame extends JFrame {
             }
 
 
-            array = new Array(min,max,size);
+            array = new Array(min, max, size);
 
             arrayList = new ArrayList<Step>();
 
             QuickSort QuickSort = new QuickSort();
 
-            QuickSort.goodQuickSort(array.getArray(), arrayList, 0, array.getArray().length-1);
+            QuickSort.goodQuickSort(array.getArray(), arrayList, 0, array.getArray().length - 1);
 
             GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
             gp2.paintComponent(getGraphics());
@@ -115,7 +113,7 @@ public class MainFrame extends JFrame {
             for (int i = 0; i < arrayList.size(); i++) {
 
                 System.out.println(i + "-я замена");
-                if (arrayList.get(i).getChangingElementsIndexes()[0]==-1) {
+                if (arrayList.get(i).getChangingElementsIndexes()[0] == -1) {
                     System.out.println("Элементы больше не изменятся");
                     System.out.print("Текущее состояние массива ");
                     for (int j = 0; j < arrayList.get(i).getElementsValues().length; j++) {
@@ -153,7 +151,7 @@ public class MainFrame extends JFrame {
             infoGathererPanel.resultButton.setEnabled(true);
             infoGathererPanel.nextButton.setEnabled(true);// включает кнопку некст тк был шаг назад значит можем и вперед
 
-            if (nextPrevIndex==1){
+            if (nextPrevIndex == 1){
                 infoGathererPanel.prevButton.setEnabled(false);
             }
 
@@ -168,7 +166,7 @@ public class MainFrame extends JFrame {
         public void actionPerformed(ActionEvent event){
             infoGathererPanel.prevButton.setEnabled(true); // включает кнопку прев тк был шаг вперед значит можем и назад
 
-            if (nextPrevIndex==(arrayList.size()-2)){
+            if (nextPrevIndex == (arrayList.size()-2)){
                 infoGathererPanel.nextButton.setEnabled(false);
                 infoGathererPanel.resultButton.setEnabled(false);
             }
@@ -230,7 +228,7 @@ public class MainFrame extends JFrame {
             infoGathererPanel.nextButton.setEnabled(false); // выключает нектс тк дальше некуда
 
 
-            nextPrevIndex = arrayList.size()-1;
+            nextPrevIndex = arrayList.size() - 1;
             GraphicsPanel gp2 = arrayList.get(nextPrevIndex).paint();
             gp2.paintComponent(getGraphics());
 

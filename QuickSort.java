@@ -33,7 +33,7 @@ public class QuickSort {
                         copy[k]=arr[k];
                     }
 
-                    Step chang = new Step(redColumn,changing,copy);
+                    Step chang = new Step(redColumn, changing, copy);
                     list.add(chang);
                     System.out.println();
                     int temp = arr[i];
@@ -66,8 +66,8 @@ public class QuickSort {
     public void goodQuickSort(int[] arr, ArrayList<Step> list, int low, int high) {
         quickSort(arr, list, low, high);
         int[] changing = new int[2];
-        changing[0]=-1;
-        changing[1]=-1;
+        changing[0] = -1;
+        changing[1] = -1;
         list.add(new Step(-1, changing, arr));
     }
 
