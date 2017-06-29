@@ -22,9 +22,9 @@ public class UserPanel extends JPanel{
     public JButton resultButton = new JButton("Result");
 
 
-    public JTextField txtFieldMinSize = new JTextField(8); // Поля для ввода текста
-    public JTextField txtFieldMaxSize = new JTextField(8);
-    public JTextField txtFieldSize = new JTextField(8);
+    public JTextField txtFieldMinSize = new JTextField("1", 8);// Поля для ввода текста
+    public JTextField txtFieldMaxSize = new JTextField("100", 8);
+    public JTextField txtFieldSize = new JTextField("100", 8);
 
 
     public UserPanel() {

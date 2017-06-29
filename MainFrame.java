@@ -73,6 +73,10 @@ public class MainFrame extends JFrame {
                     min = Integer.parseInt(infoGathererPanel.txtFieldMinSize.getText());
                     max = Integer.parseInt(infoGathererPanel.txtFieldMaxSize.getText());
                     size = Integer.parseInt(infoGathererPanel.txtFieldSize.getText());
+                    if (min > max || min<1 || max>100 || size>100) {
+                        System.out.println("НЕВЕРНЫЙ ВВОД");
+                        exit(0);
+                    }
                     break;
                 } catch (NumberFormatException ex) {
                     System.out.println("НЕВЕРНЫЙ ВВОД"); //TODO не работает обработка неверного ввода
