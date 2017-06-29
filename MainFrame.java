@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -68,21 +69,27 @@ public class MainFrame extends JFrame {
         public void actionPerformed(ActionEvent event){
             int min = 0, max = 0, size = 0;
 
-            while (true) {
-                try {
-                    min = Integer.parseInt(infoGathererPanel.txtFieldMinSize.getText());
-                    max = Integer.parseInt(infoGathererPanel.txtFieldMaxSize.getText());
-                    size = Integer.parseInt(infoGathererPanel.txtFieldSize.getText());
-                    if (min > max || min<1 || max>100 || size>100) {
-                        System.out.println("НЕВЕРНЫЙ ВВОД");
-                        exit(0);
-                    }
-                    break;
-                } catch (NumberFormatException ex) {
-                    System.out.println("НЕВЕРНЫЙ ВВОД"); //TODO не работает обработка неверного ввода
-                    exit(1);
+            try {
+                min = Integer.parseInt(infoGathererPanel.txtFieldMinSize.getText());
+                max = Integer.parseInt(infoGathererPanel.txtFieldMaxSize.getText());
+                size = Integer.parseInt(infoGathererPanel.txtFieldSize.getText());
+                if (min > max || min<1 || max>100 || size>100) {
+                    infoGathererPanel.txtFieldMinSize.setText("");
+                    infoGathererPanel.txtFieldMaxSize.setText("");
+                    infoGathererPanel.txtFieldSize.setText("");
+                    JOptionPane.showMessageDialog(null, "Неверный ввод");
+                    return;
                 }
+
             }
+            catch (NumberFormatException ex) {
+                infoGathererPanel.txtFieldMinSize.setText("");
+                infoGathererPanel.txtFieldMaxSize.setText("");
+                infoGathererPanel.txtFieldSize.setText("");
+                JOptionPane.showMessageDialog(null, "Неверный ввод");
+                return;
+            }
+
 
             array = new Array(min,max,size);
 
@@ -97,11 +104,12 @@ public class MainFrame extends JFrame {
 
             //проверка правильности сортировки массива
             System.out.println("Отсортированный массив");
+
+
             for (int i = 0; i < array.getArray().length; i++) {
                 System.out.print(array.getArray()[i] + " ");
             }
             System.out.println();
-
 
             //проверка правильности заполнения массива Step'ов
             for (int i = 0; i < arrayList.size(); i++) {
@@ -119,10 +127,12 @@ public class MainFrame extends JFrame {
                 System.out.println("Индексы меняемых чисел " + arrayList.get(i).getChangingElementsIndexes()[0] + " и "  + arrayList.get(i).getChangingElementsIndexes()[1]);
                 System.out.println("Индекс остовного элемента " + arrayList.get(i).getPivotsIndex());
                 System.out.print("Текущее состояние массива ");
+
                 for (int j = 0; j < arrayList.get(i).getElementsValues().length; j++) {
                     System.out.print(arrayList.get(i).getElementsValues()[j] + " ");
                 }
                 System.out.println();
+
             }
 
 
